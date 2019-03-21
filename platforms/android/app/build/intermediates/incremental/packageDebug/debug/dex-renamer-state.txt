@@ -1,0 +1,4 @@
+#Sun Mar 17 15:47:37 COT 2019
+base.0=C\:\\Users\\sergioandres\\Desktop\\Ionic\\BeMonitorMovil\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

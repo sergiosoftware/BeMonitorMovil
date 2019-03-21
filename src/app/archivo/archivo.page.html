@@ -1,0 +1,30 @@
+<!--<ion-header>
+  <ion-toolbar>
+    <ion-title>archivo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+</ion-content>-->
+
+<h1 mat-dialog-title>TeAvalo</h1>
+<div mat-dialog-content>
+  <p>Tipo de archivo</p>
+  <form method="POST" action="{{url}}{{data.id}}" enctype="multipart/form-data" #form>
+    <select name="name_file">
+      <option value="url_documento">Documento</option>
+      <option value="foto">Foto de perfil</option>
+    </select>
+    
+    <div class="upload-btn-wrapper">
+      <button class="btn btn-primary btn-sm">Cargar documento</button>
+      <input type="file" class="" name="file_user" />
+    </div>
+
+    <div mat-dialog-actions>
+      <button type="submit" (click)="form.submit()" (click)="onNoClick()">Subir archivo</button>
+      <button mat-button (click)="onNoClick()">Cerrar</button>
+    </div>
+  </form>
+</div>

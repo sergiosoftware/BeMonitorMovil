@@ -1,0 +1,7 @@
+{
+  "name": "BeMonitorMovil",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
