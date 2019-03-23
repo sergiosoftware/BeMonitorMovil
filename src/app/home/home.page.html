@@ -19,7 +19,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12" *ngFor="let CU of casosdeUso">
-        <ion-card>
+        <ion-card (click)="reproducirSonido(CU)">
           <ion-img [src]="CU.imagen"></ion-img>
           <!-- Item as an Anchor -->
           <ion-item routerLink="/cusolicitar-asesoria">
@@ -27,7 +27,16 @@
               Solicitar Asesoria
             </ion-label>
           </ion-item>
-        </ion-card>        
+        </ion-card>
+        <ion-card (click)="reproducirSonido(CU)">
+          <ion-img [src]="CU.imagen"></ion-img>
+          <!-- Item as an Anchor -->
+          <ion-item routerLink="/archivo">
+            <ion-label stacked class="my-label">
+              Archivo
+            </ion-label>
+          </ion-item>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
