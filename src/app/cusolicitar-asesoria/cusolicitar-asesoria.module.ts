@@ -17,10 +17,13 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
+    File,
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes)
   ],
   declarations: [CUSolicitarAsesoriaPage]
 })
-export class CUSolicitarAsesoriaPageModule {}
+export class CUSolicitarAsesoriaPageModule {
+
+}
