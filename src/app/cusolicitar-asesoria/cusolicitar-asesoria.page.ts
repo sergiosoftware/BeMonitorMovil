@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { File } from '@ionic-native/file';
 import { JsonPipe } from '@angular/common';
+import { writeFile } from 'fs';
 
 @Component({
   selector: 'app-cusolicitar-asesoria',
@@ -20,17 +21,23 @@ export class CUSolicitarAsesoriaPage implements OnInit {
 
   }
   public items: Array<{ codigoEstudiante: string; asignatura: string; tema: string }> = [];
-  crearAsesoria(codigoEstudian, asignature, tem) {
-
+  crearAsesoria(codigoEstudian: string, asignature: string, tem: string) {
     this.items.push({
-      codigoEstudiante: codigoEstudian,
-      asignatura: asignature,
-      tema: tem
-    });
+        codigoEstudiante: codigoEstudian,
+        asignatura: asignature,
+        tema: tem
+      });
+      this.writeJSON("asesorias.json", this.items);
+
+
+  }
+
+  readJson(object) {
+    this.items = JSON.parse(object);
   }
 
   writeJSON(filename, object) {
-    return this.file.writeFile(this.file.dataDirectory, filename, JSON.stringify(object), { replace: true })
+    return this.file.writeFile(this.file.dataDirectory, filename, JSON.stringify(object), { replace: false })
   }
 
 

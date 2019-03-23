@@ -1,0 +1,13 @@
+{
+    "asesorias1":
+    {   "codigoEstudiante":"1701311587",
+        "asignatura":"Redes II",
+        "tema": "Direccionamiento Ipv6"
+    },
+    "asesoria2":
+    {
+        "codigoEstudiante":"1701310061",
+        "asignatura":"Analisis y diseño de algoritmos",
+        "tema": "Backtracking"
+    }
+}
