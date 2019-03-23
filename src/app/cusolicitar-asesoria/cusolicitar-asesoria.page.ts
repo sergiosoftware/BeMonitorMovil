@@ -17,17 +17,24 @@ export class CUSolicitarAsesoriaPage implements OnInit {
     }
   ]
 
-  constructor(private file: File) {
+  constructor(private file: File, entero) {
 
   }
+  entero = 2;
   public items: Array<{ codigoEstudiante: string; asignatura: string; tema: string }> = [];
+  public jsonfinal: Array<{ asesoria: string; datos: Array<{ codigoEstudiante: string; asignatura: string; tema: string }> }> = [];
   crearAsesoria(codigoEstudian: string, asignature: string, tem: string) {
     this.items.push({
-        codigoEstudiante: codigoEstudian,
-        asignatura: asignature,
-        tema: tem
-      });
-      this.writeJSON("asesorias.json", this.items);
+      codigoEstudiante: codigoEstudian,
+      asignatura: asignature,
+      tema: tem
+    });
+    this.jsonfinal.push({
+      asesoria: "asesoria" + this.entero + 1,
+      datos: this.items
+    })
+    this.entero = this.entero + 1;
+    this.writeJSON("asesorias.json", this.jsonfinal);
 
 
   }
