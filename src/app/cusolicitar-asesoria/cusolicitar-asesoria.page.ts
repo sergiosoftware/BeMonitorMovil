@@ -14,22 +14,16 @@ export class CUSolicitarAsesoriaPage implements OnInit {
     }
   ]
 
-  constructor() {
-
-  }
-
-  getDatos(){
-    
-  }
-
-  reproducirSonido(instrumento) {
-    let sonido = new Audio();
-    sonido.src = instrumento.audio;
+  reproducirSonido(instrumento){
+    let sonido=new Audio();
+    sonido.src=instrumento.audio;
     sonido.load();
     sonido.play();
   }
-  ngOnInit() {
 
+  constructor() { }
+
+  ngOnInit() {
   }
 
 }
