@@ -1,21 +1,47 @@
 <ion-header>
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-      </ion-buttons>
-      <ion-title>
-        <ion-item>
-          <ion-label stacked class="my-label">
-            <ion-avatar slot="start">
-              <img src="assets/icon/tittle.png">
-            </ion-avatar>BeMonitor Móvil
-          </ion-label>
-        </ion-item>
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-item>
+        <ion-label stacked class="my-label">
+          <ion-avatar slot="start">
+            <img src="assets/icon/tittle.png">
+          </ion-avatar>BeMonitor Móvil
+        </ion-label>
+      </ion-item>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content padding>
   <h1>Responder Asesoria</h1>
 
+  <ion-grid>
+    <ion-item>
+      <ion-label>Asignatura</ion-label>
+      <ion-label>Tema</ion-label>
+      <ion-label>Correo estudiante</ion-label>
+      <ion-label>Responder</ion-label>
+    </ion-item>
+    <ion-row *ngFor="let listaAsesorias of asesoriasDisponibles">
+      <ion-item>
+        <ion-label>{{listaAsesorias.asignatura}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{listaAsesorias.tema}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{listaAsesorias.correoEstudiante}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label></ion-label>
+        <ion-checkbox slot="end"></ion-checkbox>
+      </ion-item>
+    </ion-row>
+    <ion-button expand="full" size="small" color="dark" (click)="guardarYbuscar()">
+      <ion-icon name="send"></ion-icon>Responder
+    </ion-button>
+  </ion-grid>
 </ion-content>

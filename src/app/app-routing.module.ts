@@ -22,7 +22,8 @@ const routes: Routes = [
   { 
     path: 'archivo', 
     loadChildren: './archivo/archivo.module#ArchivoPageModule' },
-  { path: 'curesponder-asesoria', loadChildren: './curesponder-asesoria/curesponder-asesoria.module#CuresponderAsesoriaPageModule' }
+  { path: 'curesponder-asesoria', loadChildren: './curesponder-asesoria/curesponder-asesoria.module#CuresponderAsesoriaPageModule' },
+  { path: 'curesponder-asesoria-calendario', loadChildren: './curesponder-asesoria-calendario/curesponder-asesoria-calendario.module#CuresponderAsesoriaCalendarioPageModule' }
 ];
 
 @NgModule({
