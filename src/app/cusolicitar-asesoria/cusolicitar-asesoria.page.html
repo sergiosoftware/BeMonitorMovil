@@ -14,7 +14,6 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
 <ion-content color="medium">
   <ion-grid>
     <ion-row>
@@ -23,27 +22,39 @@
           <ion-item>
             <ion-label stacked class="my-label">Solicitar Asesoria</ion-label>
           </ion-item>
-          <ion-item>
-            <ion-label>Asignatura</ion-label>
-            <ion-select placeholder="Select One">
-              <ion-select-option value="f">Ingenieria de Software III</ion-select-option>
-              <ion-select-option value="m">Redes de Computadores II</ion-select-option>
-            </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-label>Tema</ion-label>
-            <ion-input placeholder="..."></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-button size="small" color="dark">
+          <form novalidate [formGroup]="form">
+            <ion-item>
+              <ion-label stacked>Asignatura</ion-label>
+              <ion-select formControlName="asignaturaA">
+                <ion-select-option value="G8F0080" checked="true">Redes de computadores III</ion-select-option>
+                <ion-select-option value="G8F0059">Análisis y diseño de algoritmos</ion-select-option>
+                <ion-select-option value="G8f0068">Ingenieria de software III</ion-select-option>
+              </ion-select>
+              <div>
+                  <ng-container *ngFor="let validation of validation_messages.asignaturaA">
+                    <div *ngIf="form.get('asignaturaA').hasError(validation.type)">
+                      <p>{{validation.message}}</p>
+                    </div>
+                  </ng-container>
+                </div>
+            </ion-item>
+            <ion-item>
+              <ion-label stacked>Tema</ion-label>
+              <ion-input placeholder="..." formControlName="temaA"></ion-input>
+            </ion-item>
+            <div>
+              <ng-container *ngFor="let validation of validation_messages.temaA">
+                <div *ngIf="form.get('temaA').hasError(validation.type)">
+                  <p>{{validation.message}}</p>
+                </div>
+              </ng-container>
+            </div>
+            <ion-button expand="full" size="small" color="dark" (click)="save()">
               <ion-icon name="send"></ion-icon>Solicitar
             </ion-button>
-          </ion-item>
+          </form>
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-
-
-
-</ion-content>
+  <ion-content>

@@ -1,54 +1,49 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      <ion-item>
-        <ion-label stacked class="my-label">
-          <ion-avatar slot="start">
-            <img src="assets/icon/tittle.png">
-          </ion-avatar>BeMonitor Móvil
-        </ion-label>
-      </ion-item>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>
+        <ion-item>
+          <ion-label stacked class="my-label">
+            <ion-avatar slot="start">
+              <img src="assets/icon/tittle.png">
+            </ion-avatar>BeMonitor Movil
+          </ion-label>
+        </ion-item>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content color="medium">
+    <ion-grid>
+      <!--Caso de uso Solicitar Asesoria-->
+      <ion-row>
+        <ion-col size="6" *ngFor="let Solicitar of SolicitarAsesoria">
+          <ion-card (click)="reproducirSonido(Solicitar)">
+            <ion-img [src]="Solicitar.imagen"></ion-img>
+            <!-- Item as an Anchor -->
+            <ion-item routerLink="/cusolicitar-asesoria">
+              <ion-label stacked class="my-label">
+                Solicitar Asesoria
+              </ion-label>
+            </ion-item>
+          </ion-card>
+        </ion-col>
 
-<ion-content color="medium">
-  <ion-grid>
-    <ion-row>
-      <ion-col size="12" *ngFor="let CU of casosdeUso">
-        <ion-card (click)="reproducirSonido(CU)">
-          <ion-img [src]="CU.imagen"></ion-img>
-          <!-- Item as an Anchor -->
-          <ion-item routerLink="/cusolicitar-asesoria">
-            <ion-label stacked class="my-label">
-              Solicitar Asesoria
-            </ion-label>
-          </ion-item>
-        </ion-card>
-        <ion-card (click)="reproducirSonido(CU)">
-          <ion-img [src]="CU.imagen"></ion-img>
-          <!-- Item as an Anchor -->
-          <ion-item routerLink="/archivo">
-            <ion-label stacked class="my-label">
-              Archivo
-            </ion-label>
-          </ion-item>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <!--
-    <ion-list lines="none">
-      <ion-list-header>
-        <ion-label>Resources</ion-label>
-      </ion-list-header>
-      <ion-item href="https://ionicframework.com/docs/">
-        <ion-icon slot="start" color="medium" name="book"></ion-icon>
-        <ion-label>Ionic Documentation</ion-label>
-      </ion-item>
-    </ion-list>
-  -->
-</ion-content>
+      <!--Caso de uso Responder Asesoria-->
+      
+          <ion-col size="6" *ngFor="let Responder of ResponderAsesoria">
+            <ion-card (click)="reproducirSonido(Responder)">
+              <ion-img [src]="Responder.imagen"></ion-img>
+              <!-- Item as an Anchor -->
+              <ion-item routerLink="/curesponder-asesoria">
+                <ion-label stacked class="my-label">
+                  Responder Asesoria
+                </ion-label>
+              </ion-item>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  </ion-content>

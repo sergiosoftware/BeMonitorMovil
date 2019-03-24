@@ -15,12 +15,18 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  { path: 'cusolicitar-asesoria', loadChildren: './cusolicitar-asesoria/cusolicitar-asesoria.module#CUSolicitarAsesoriaPageModule' },
-  { path: 'archivo', loadChildren: './archivo/archivo.module#ArchivoPageModule' }
+  { 
+    path: 'cusolicitar-asesoria', 
+    loadChildren: './cusolicitar-asesoria/cusolicitar-asesoria.module#CUSolicitarAsesoriaPageModule' 
+  },
+  { 
+    path: 'archivo', 
+    loadChildren: './archivo/archivo.module#ArchivoPageModule' },
+  { path: 'curesponder-asesoria', loadChildren: './curesponder-asesoria/curesponder-asesoria.module#CuresponderAsesoriaPageModule' }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

@@ -3,3 +3,24 @@
     src: url(https://fonts.google.com/?query=lobster&selection.family=Lobster);
     text-align: center;
   }
+
+  p {
+    font-size: 0.8em;
+    color: #d2d2d2;
+}
+
+ion-slides {
+	height: 100%;
+}
+
+ion-slide {
+    display: block;
+}
+
+ion-label, .select-text {
+    margin-left: 10px;
+}
+
+.invalid {
+    border: 1px solid #ea6153;
+}

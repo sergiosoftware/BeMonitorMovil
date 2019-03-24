@@ -6,13 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  casosdeUso = [
+  SolicitarAsesoria = [
     {
       nombre: 'Solicitar Asesoria',
       imagen: 'assets/imagenes/solicitarasesoria.jpg',
       audio: 'assets/sonidos/bombo1.mp3'
+    }];
+  ResponderAsesoria =[
+    {
+      nombre: 'Responder Asesoria',
+      imagen: 'assets/imagenes/responderasesoria.jpg',
+      audio: 'assets/sonidos/bombo1.mp3'
     }
-  ]
+  ];
 
   reproducirSonido(instrumento){
     let sonido=new Audio();
