@@ -8,6 +8,7 @@ import { NavController } from '@ionic/angular';
 })
 export class CuresponderAsesoriaPage implements OnInit {
   segundaPage = "curesponder-asesoria-calendario";
+  asesoriaSeleccionada: string;
   asesoriasDisponibles = [
     {
       codigo: '1',
@@ -44,10 +45,10 @@ export class CuresponderAsesoriaPage implements OnInit {
   guardarYbuscar(){
     this.navCtrl.navigateRoot('/curesponder-asesoria-calendario');
   }
-
-
-  
-
+  asesoriaActual(codigo) {
+    this.asesoriaSeleccionada=codigo.codigo;
+    console.log('Nuevo estado:' + this.asesoriaSeleccionada);
+  }
   ngOnInit() {
   }
 

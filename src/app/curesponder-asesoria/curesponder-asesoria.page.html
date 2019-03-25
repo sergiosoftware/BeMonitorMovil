@@ -37,7 +37,7 @@
       </ion-item>
       <ion-item>
         <ion-label></ion-label>
-        <ion-checkbox slot="end"></ion-checkbox>
+        <ion-checkbox (ionChange)="asesoriaActual(listaAsesorias)"></ion-checkbox>
       </ion-item>
     </ion-row>
     <ion-button expand="full" size="small" color="dark" (click)="guardarYbuscar()">
