@@ -1,9 +1,40 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>curesponder-asesoria-calendario</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-item>
+        <ion-label stacked class="my-label">
+          <ion-avatar slot="start">
+            <img src="assets/icon/tittle.png">
+          </ion-avatar>BeMonitor Móvil
+        </ion-label>
+      </ion-item>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  calendario
+  <ion-grid>
+  <ion-item>
+    <ion-label stacked class="my-label">Solicitar Asesoria</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      <ion-icon name="calendar"></ion-icon>Fecha:
+    </ion-label>
+    <ion-datetime name="fechaAsesoria" display-format="MMM DD, YYYY" [(ngModel)]="myDate"></ion-datetime>
+  </ion-item>
+  <ion-item>
+    <ion-label>
+      <ion-icon name="alarm">
+      </ion-icon>Hora:
+    </ion-label>
+      <ion-datetime name="horaAsesoria" display-format="HH:mm" [(ngModel)]="myTime"></ion-datetime>
+  </ion-item>
+    <ion-button expand=" full" size="small" color="dark" (click)="guardarDatos(myDate,myTime)">
+      <ion-icon name="send"></ion-icon>Responder
+    </ion-button>
+  </ion-grid>
 </ion-content>

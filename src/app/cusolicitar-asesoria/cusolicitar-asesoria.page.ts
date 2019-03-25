@@ -12,7 +12,9 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 })
 
 export class CUSolicitarAsesoriaPage {
-  // Define atributes of class
+  /**
+   * Define atributes of class 
+   * */
   private asignaturaAsesoria: string;
   private temaAsesoria: string;
   form: FormGroup;

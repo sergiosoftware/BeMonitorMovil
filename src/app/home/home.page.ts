@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  /**
+   * Caracteristicas adicionales para las vistas, no son requisitos del cliente
+   */
   SolicitarAsesoria = [
     {
       nombre: 'Solicitar Asesoria',

@@ -7,29 +7,31 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./curesponder-asesoria.page.scss'],
 })
 export class CuresponderAsesoriaPage implements OnInit {
-  segundaPage = "curesponder-asesoria-calendario";
-  asesoriaSeleccionada: string;
+  /**
+   *Variable para verificar que opcion de checkbox se selecciona en la vista 
+   */
+  asesoriaSeleccionada: '0';
+  /**
+   *Estructura temporal, se debe reemplazar por los datos obtenidos del webService desarrollado
+   */
   asesoriasDisponibles = [
     {
       codigo: '1',
       asignatura: 'Análisis y diseño de algoritmos',
       tema: 'BackTraking',
-      correoEstudiante: 'juliancamy.81@gmail.com',
-      responder: '1', isChecked: true
+      correoEstudiante: 'juliancamy.81@gmail.com'
     },
     {
       codigo: '2',
       asignatura: 'Análisis y diseño de algoritmos',
       tema: 'Ramificación y poda',
-      correoEstudiante: 'sergio.1701310061@ucaldas.edu.co',
-      responder: '2', isChecked: true
+      correoEstudiante: 'sergio.1701310061@ucaldas.edu.co'
     },
     {
       codigo: '3',
       asignatura: 'Análisis y diseño de algoritmos',
       tema: 'No se hacer prog dinámica',
-      correoEstudiante: 'camilo.171311587@ucaldas.edu.co',
-      responder: '3', isChecked: true
+      correoEstudiante: 'camilo.171311587@ucaldas.edu.co'
     }
   ]
 
@@ -41,10 +43,18 @@ export class CuresponderAsesoriaPage implements OnInit {
     sonido.load();
     sonido.play();
   }
-
+  /**
+   * Validar si el usuario selecciono una asesoria para responder, si cumple se redirecciona a una nueva vista
+   */
   guardarYbuscar(){
-    this.navCtrl.navigateRoot('/curesponder-asesoria-calendario');
+    if (this.asesoriaSeleccionada != undefined){
+      this.navCtrl.navigateRoot('/curesponder-asesoria-calendario');
+    }
   }
+  /**
+   * Obtener en tiempo de ejecucion la asesoria selecionada por el actor par darle respuesta
+   * @param codigo nos indica el codigo de la asignatura que va a recibir la respuesta
+   */
   asesoriaActual(codigo) {
     this.asesoriaSeleccionada=codigo.codigo;
     console.log('Nuevo estado:' + this.asesoriaSeleccionada);
