@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {AsesoriaService} from '../asesoria.service'
 
 @Component({
   selector: 'app-cusolicitar-asesoria',
@@ -28,7 +29,7 @@ export class CUSolicitarAsesoriaPage {
       { type: 'pattern', message: 'Debe ingresar una asignatura para la asesoría' }
     ]
   }
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: FormBuilder, public asesoriaService:AsesoriaService) {
     // Create the form and define fields and validators.
     this.form = this.formBuilder.group({
       asignaturaA: ['', Validators.pattern('[A-Z]+[0-9]+[A-Z]+[0-9]+')],
@@ -46,6 +47,14 @@ export class CUSolicitarAsesoriaPage {
       console.log("datos obtenidos");
       console.log(this.asignaturaAsesoria);
       console.log(this.temaAsesoria);
+      let codigoEstudiante=1701310061;
+      this.asesoriaService.addAsesoria(codigoEstudiante,this.asignaturaAsesoria,this.temaAsesoria).subscribe((data)=>{
+        console.log(data);
+      },
+      (error=>{
+        console.log(error);
+      })
+      )
     }
   }
 }
