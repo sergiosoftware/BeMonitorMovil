@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-curesponder-asesoria',
@@ -35,20 +35,28 @@ export class CuresponderAsesoriaPage implements OnInit {
     }
   ]
 
-  constructor(public navCtrl: NavController) { }
-  
-  reproducirSonido(instrumento){
-    let sonido=new Audio();
-    sonido.src=instrumento.audio;
+  constructor(public navCtrl: NavController, public alertController: AlertController) { }
+
+  reproducirSonido(instrumento) {
+    let sonido = new Audio();
+    sonido.src = instrumento.audio;
     sonido.load();
     sonido.play();
   }
   /**
    * Validar si el usuario selecciono una asesoria para responder, si cumple se redirecciona a una nueva vista
    */
-  guardarYbuscar(){
-    if (this.asesoriaSeleccionada != undefined){
+  async guardarYbuscar() {
+    if (this.asesoriaSeleccionada != undefined) {
       this.navCtrl.navigateRoot('/curesponder-asesoria-calendario');
+    } else {
+      const alert = await this.alertController.create({
+        header: 'Nota',
+        message: 'Debes seleccionar una solicitud de asesoria para responder',
+        buttons: ['Close']
+      });
+
+      await alert.present();
     }
   }
   /**
@@ -56,7 +64,7 @@ export class CuresponderAsesoriaPage implements OnInit {
    * @param codigo nos indica el codigo de la asignatura que va a recibir la respuesta
    */
   asesoriaActual(codigo) {
-    this.asesoriaSeleccionada=codigo.codigo;
+    this.asesoriaSeleccionada = codigo.codigo;
     console.log('Nuevo estado:' + this.asesoriaSeleccionada);
   }
   ngOnInit() {
