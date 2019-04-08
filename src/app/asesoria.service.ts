@@ -10,14 +10,14 @@ export class AsesoriaService {
 
   //WEBSERVICE ASESORIA
   getAsesorias(){
-    return this.http.get('http://localhost:8080/Software3/getAsesoriaJSP.htm');
+    return this.http.get('http://localhost:8080/Software3/getTodasAsesorias.htm');
   }
 
   getAsesoriaId(id){
     return this.http.get('http://localhost:8080/Software3/getAsesoria.htm?idAsesoria='+id);
   }
-  getAsesoriaAsignatura(asignatura){
-    return this.http.get('http://localhost:8080/Software3/getAsesoriaAsignatura.htm?asignatura='+asignatura);
+  getAsesoriaAsignatura(asignatura:String){
+    return this.http.get('http://localhost:8080/Software3/getAsesoriaAsignatura.htm?asignatura="'+asignatura+'"');
   }
 
   addAsesoria(codigoEstudiante,asignatura,tema){
@@ -42,5 +42,3 @@ export class AsesoriaService {
   }
 
 }
-
-

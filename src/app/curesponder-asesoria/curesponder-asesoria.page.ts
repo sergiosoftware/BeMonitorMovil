@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
+import {AsesoriaService} from '../asesoria.service'
 
 @Component({
   selector: 'app-curesponder-asesoria',
@@ -12,36 +13,22 @@ export class CuresponderAsesoriaPage implements OnInit {
    */
   asesoriaSeleccionada: '0';
   /**
-   *Estructura temporal, se debe reemplazar por los datos obtenidos del webService desarrollado
+   * Estructura real de las asesorías
    */
-  asesoriasDisponibles = [
-    {
-      codigo: '1',
-      asignatura: 'Análisis y diseño de algoritmos',
-      tema: 'BackTraking',
-      correoEstudiante: 'juliancamy.81@gmail.com'
-    },
-    {
-      codigo: '2',
-      asignatura: 'Análisis y diseño de algoritmos',
-      tema: 'Ramificación y poda',
-      correoEstudiante: 'sergio.1701310061@ucaldas.edu.co'
-    },
-    {
-      codigo: '3',
-      asignatura: 'Análisis y diseño de algoritmos',
-      tema: 'No se hacer prog dinámica',
-      correoEstudiante: 'camilo.171311587@ucaldas.edu.co'
-    }
-  ]
+  asesorias=[{
+     idasesoria:"",
+     codigoAsignatura:0,
+     tema:"",
+     fechaPublicacion:"",
+     estudiante:0
+  }];
+  /**
+   * variable local que simula la asignatura del monitor
+   */
+  asesoria="G8F0059";
 
-  constructor(public navCtrl: NavController, public alertController: AlertController) { }
-
-  reproducirSonido(instrumento) {
-    let sonido = new Audio();
-    sonido.src = instrumento.audio;
-    sonido.load();
-    sonido.play();
+  constructor(public navCtrl: NavController, public alertController: AlertController, public asesoriaService: AsesoriaService) { 
+   this.cargarDatos();
   }
   /**
    * Validar si el usuario selecciono una asesoria para responder, si cumple se redirecciona a una nueva vista
@@ -64,10 +51,26 @@ export class CuresponderAsesoriaPage implements OnInit {
    * @param codigo nos indica el codigo de la asignatura que va a recibir la respuesta
    */
   asesoriaActual(codigo) {
-    this.asesoriaSeleccionada = codigo.codigo;
+    this.asesoriaSeleccionada = codigo.idasesoria;
     console.log('Nuevo estado:' + this.asesoriaSeleccionada);
+    
   }
   ngOnInit() {
+  }
+
+  /**
+   * Inicializa la lista de asesorias de la asignatura del monitor
+   * Consumiendo el webservice
+   */
+  cargarDatos(){
+    this.asesoriaService.getAsesoriaAsignatura(this.asesoria).subscribe((data)=>{
+      console.log(data);
+      this.asesorias=Object.values(data);
+    },
+    (error=>{
+      console.log(error);
+    })
+    )
   }
 
 }
