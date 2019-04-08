@@ -4,7 +4,7 @@ import {
 } from '@angular/core';
 
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import {AlertController} from '@ionic/angular'
+import {AlertController, NavController} from '@ionic/angular'
 import {AsesoriaService} from '../asesoria.service'
 import { from } from 'rxjs';
 
@@ -33,7 +33,7 @@ export class CUSolicitarAsesoriaPage {
       { type: 'pattern', message: 'Debe ingresar una asignatura para la asesoría' }
     ]
   }
-  constructor(public formBuilder: FormBuilder, public asesoriaService:AsesoriaService,public alertController:AlertController) {
+  constructor(public formBuilder: FormBuilder, public asesoriaService:AsesoriaService,public alertController:AlertController, public navCtrl: NavController) {
     // Create the form and define fields and validators.
     this.form = this.formBuilder.group({
       asignaturaA: ['', Validators.pattern('[A-Z]+[0-9]+[A-Z]+[0-9]+')],
@@ -49,7 +49,7 @@ export class CUSolicitarAsesoriaPage {
       message: 'Tu asesoría ha quedado registrada, pronto te responderá alguno de nuestros monitores',
       buttons: ['Close']
     });
-
+    this.navCtrl.navigateRoot('/home');
     await alert.present();
   }
 

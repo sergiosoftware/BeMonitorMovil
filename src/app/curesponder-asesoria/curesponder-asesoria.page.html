@@ -5,10 +5,10 @@
     </ion-buttons>
     <ion-title>
       <ion-item>
-        <ion-label stacked class="my-label">
+        <ion-label stacked class="my-header">
           <ion-avatar slot="start">
-            <img src="assets/icon/tittle.png">
-          </ion-avatar>BeMonitor Móvil
+            <img src="assets/icon/tittle.png"> BeMonitor Móvil
+          </ion-avatar>
         </ion-label>
       </ion-item>
     </ion-title>
@@ -17,7 +17,7 @@
 
 <ion-content padding>
   <ion-item>
-    <ion-label stacked class="my-label">Responder Asesoria</ion-label>
+    <ion-label stacked class="my-subtittle">Responder Asesoria</ion-label>
   </ion-item>
   <ion-grid>
 
@@ -27,17 +27,17 @@
         <ion-card color="primary">
           <ion-col> Asignatura
             <ion-item>
-              <ion-label>{{listaAsesorias.asignatura}}</ion-label>
+              <ion-label class="my-label">{{listaAsesorias.asignatura}}</ion-label>
             </ion-item>
           </ion-col>
           <ion-col> Tema
             <ion-item>
-              <ion-label>{{listaAsesorias.tema}}</ion-label>
+              <ion-label class="my-label">{{listaAsesorias.tema}}</ion-label>
             </ion-item>
           </ion-col>
           <ion-col> Correo estudiante
             <ion-item>
-              <ion-label>{{listaAsesorias.correoEstudiante}}</ion-label>
+              <ion-label class="my-label">{{listaAsesorias.correoEstudiante}}</ion-label>
             </ion-item>
           </ion-col>
           <ion-col> Responder

@@ -1,6 +1,9 @@
 .my-label {
     font-family: 'Lobster';
-    src: url(https://fonts.google.com/?query=lobster&selection.family=Lobster);
+  }
+
+  .my-subtittle {
+    font-family: 'Lobster';
     text-align: center;
   }
 
@@ -24,3 +27,9 @@ ion-label, .select-text {
 .invalid {
     border: 1px solid #ea6153;
 }
+
+.my-header{
+    font-family: 'lobster';
+    font-size: 40px;
+    text-align: center;
+  }

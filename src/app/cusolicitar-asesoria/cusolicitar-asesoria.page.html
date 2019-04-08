@@ -5,10 +5,10 @@
     </ion-buttons>
     <ion-title>
       <ion-item>
-        <ion-label stacked class="my-label">
+        <ion-label stacked class="my-header">
           <ion-avatar slot="start">
-            <img src="assets/icon/tittle.png">
-          </ion-avatar>BeMonitor Móvil
+            <img src="assets/icon/tittle.png"> BeMonitor Móvil
+          </ion-avatar>
         </ion-label>
       </ion-item>
     </ion-title>
@@ -20,26 +20,26 @@
       <ion-col size="12">
         <ion-card>
           <ion-item>
-            <ion-label stacked class="my-label">Solicitar Asesoria</ion-label>
+            <ion-label stacked class="my-subtittle">Solicitar Asesoria</ion-label>
           </ion-item>
           <form novalidate [formGroup]="form">
             <ion-item>
-              <ion-label stacked>Asignatura</ion-label>
+              <ion-label stacked class="my-label">Asignatura</ion-label>
               <ion-select formControlName="asignaturaA">
                 <ion-select-option value="G8F0080" checked="true">Redes de computadores III</ion-select-option>
                 <ion-select-option value="G8F0059">Análisis y diseño de algoritmos</ion-select-option>
                 <ion-select-option value="G8F0068">Ingenieria de software III</ion-select-option>
               </ion-select>
               <div>
-                  <ng-container *ngFor="let validation of validation_messages.asignaturaA">
-                    <div *ngIf="form.get('asignaturaA').hasError(validation.type)">
-                      <p>{{validation.message}}</p>
-                    </div>
-                  </ng-container>
-                </div>
+                <ng-container *ngFor="let validation of validation_messages.asignaturaA">
+                  <div *ngIf="form.get('asignaturaA').hasError(validation.type)">
+                    <p>{{validation.message}}</p>
+                  </div>
+                </ng-container>
+              </div>
             </ion-item>
             <ion-item>
-              <ion-label stacked>Tema</ion-label>
+              <ion-label stacked class="my-label">Tema</ion-label>
               <ion-input placeholder="..." formControlName="temaA"></ion-input>
             </ion-item>
             <div>

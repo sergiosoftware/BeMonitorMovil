@@ -5,10 +5,10 @@
     </ion-buttons>
     <ion-title>
       <ion-item>
-        <ion-label stacked class="my-label">
+        <ion-label stacked class="my-header">
           <ion-avatar slot="start">
-            <img src="assets/icon/tittle.png">
-          </ion-avatar>BeMonitor Móvil
+            <img src="assets/icon/tittle.png"> BeMonitor Móvil
+          </ion-avatar>
         </ion-label>
       </ion-item>
     </ion-title>
@@ -17,22 +17,22 @@
 
 <ion-content padding>
   <ion-grid>
-  <ion-item>
-    <ion-label stacked class="my-label">Responder Asesoria</ion-label>
-  </ion-item>
-  <ion-item>
-    <ion-label>
-      <ion-icon name="calendar"></ion-icon>Fecha:
-    </ion-label>
-    <ion-datetime name="fechaAsesoria" display-format="MMM DD, YYYY" [(ngModel)]="myDate"></ion-datetime>
-  </ion-item>
-  <ion-item>
-    <ion-label>
-      <ion-icon name="alarm">
-      </ion-icon>Hora:
-    </ion-label>
+    <ion-item>
+      <ion-label stacked class="my-subtittle">Responder Asesoria</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label class="my-label">
+        <ion-icon name="calendar"></ion-icon>Fecha:
+      </ion-label>
+      <ion-datetime name="fechaAsesoria" display-format="MMM DD, YYYY" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label class="my-label">
+        <ion-icon name="alarm">
+        </ion-icon>Hora:
+      </ion-label>
       <ion-datetime name="horaAsesoria" display-format="HH:mm" [(ngModel)]="myTime"></ion-datetime>
-  </ion-item>
+    </ion-item>
     <ion-button expand="full" size="small" color="dark" (click)="guardarDatos(myDate,myTime)">
       <ion-icon name="send"></ion-icon>Responder
     </ion-button>
