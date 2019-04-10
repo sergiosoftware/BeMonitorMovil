@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController, NavParams } from '@ionic/angular';
 import {AsesoriaService} from '../asesoria.service'
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-curesponder-asesoria-calendario',
@@ -15,7 +16,7 @@ export class CuresponderAsesoriaCalendarioPage implements OnInit {
   private horaAsesoria;
   private idAsesoria;
   constructor(public navCtrl: NavController,public storage:Storage, public alertController: AlertController, public asesoriaService:AsesoriaService) { 
-    storage.getItem('idAsesoria').then((parameter)=>
+    storage.get('idAsesoria').then((parameter)=>
       {
         console.log(parameter);
         this.idAsesoria=parameter;

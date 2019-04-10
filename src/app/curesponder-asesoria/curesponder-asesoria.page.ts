@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
 import {AsesoriaService} from '../asesoria.service'
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-curesponder-asesoria',
@@ -38,7 +39,7 @@ export class CuresponderAsesoriaPage implements OnInit {
    */
   async guardarYbuscar() {
     if (this.asesoriaSeleccionada != undefined) {
-      await this.storage.setItem('idAsesoria',this.asesoriaSeleccionada);
+      await this.storage.set('idAsesoria',this.asesoriaSeleccionada);
       await this.navCtrl.navigateForward(['/curesponder-asesoria-calendario']);
     } else {
       const alert = await this.alertController.create({
