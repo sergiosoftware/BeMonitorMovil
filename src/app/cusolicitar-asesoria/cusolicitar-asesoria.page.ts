@@ -1,12 +1,8 @@
-import {
-  Component,
-  ViewChild
-} from '@angular/core';
+import {Component} from '@angular/core';
 
-import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import {FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {AlertController, NavController} from '@ionic/angular'
 import {AsesoriaService} from '../asesoria.service'
-import { from } from 'rxjs';
 
 
 @Component({
@@ -74,9 +70,6 @@ export class CUSolicitarAsesoriaPage {
       // Save your values, using this.form.get('myField').value;
       this.asignaturaAsesoria = this.form.get('asignaturaA').value;
       this.temaAsesoria = this.form.get('temaA').value;
-      console.log("datos obtenidos");
-      console.log(this.asignaturaAsesoria);
-      console.log(this.temaAsesoria);
       let codigoEstudiante=1701310061;
       this.asesoriaService.addAsesoria(codigoEstudiante,this.asignaturaAsesoria,this.temaAsesoria).subscribe((data)=>{
         console.log(data);

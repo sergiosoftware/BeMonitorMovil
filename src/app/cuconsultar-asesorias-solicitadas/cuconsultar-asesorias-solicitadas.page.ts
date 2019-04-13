@@ -39,7 +39,7 @@ export class CuconsultarAsesoriasSolicitadasPage implements OnInit {
    */
   async guardarYbuscar(asesoriaSeleccionada) {
     if (asesoriaSeleccionada != undefined) {
-      await this.storage.set('idasesoria',asesoriaSeleccionada.idasesoria);
+      await this.storage.set('idAsesoria',asesoriaSeleccionada.idasesoria);
       await this.navCtrl.navigateForward(['/cuconsultar-asesorias-solicitadas-detalles']);
     } else {
       const alert = await this.alertController.create({
