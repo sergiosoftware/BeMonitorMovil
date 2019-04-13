@@ -18,7 +18,7 @@ export class CuresponderAsesoriaPage implements OnInit {
    */
   asesorias=[{
      idasesoria:"",
-     codigoAsignatura:0,
+     nombreAsignatura:"",
      tema:"",
      fechaPublicacion:"",
      estudiante:0

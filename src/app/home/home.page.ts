@@ -22,6 +22,12 @@ export class HomePage {
       audio: 'assets/sonidos/bombo1.mp3'
     }
   ];
+  ConsultarAseosirasSolicitadas = [
+    {
+      nombre: 'Consultar Asesorias Solicitadas',
+      imagen: 'assets/imagenes/consultarasesorias.jpg',
+      audio: 'assets/sonidos/bombo1.mp3'
+    }];
 
   reproducirSonido(instrumento){
     let sonido=new Audio();
