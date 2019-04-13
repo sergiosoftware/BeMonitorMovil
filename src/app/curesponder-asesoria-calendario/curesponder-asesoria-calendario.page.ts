@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ModuleWithComponentFactories } from '@angular/core';
 import { NavController, AlertController, NavParams } from '@ionic/angular';
 import {AsesoriaService} from '../asesoria.service'
 import { Storage } from '@ionic/storage';
+import { AstMemoryEfficientTransformer } from '@angular/compiler';
 
 @Component({
   selector: 'app-curesponder-asesoria-calendario',
@@ -75,5 +76,9 @@ export class CuresponderAsesoriaCalendarioPage implements OnInit {
     this.navCtrl.navigateRoot('/home');
     await alert.present();
   }
+
+  //getCurrentTime() {
+  //  return moment().format("MMM Do YY");
+  //}
 
 }
