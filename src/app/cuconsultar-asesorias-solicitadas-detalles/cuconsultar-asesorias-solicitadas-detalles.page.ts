@@ -13,44 +13,35 @@ export class CuconsultarAsesoriasSolicitadasDetallesPage implements OnInit {
    * Estructura real de las asesorías detalladas
    */
   asesorias=[{
-     asignatura:"",
-     tema:0,
      fechaRespuesta:"",
+     horaRespuesta:"",
      nombreMonitor:"",
-     correoMonitor:""
+     apellidoMonitor:"",
+     correo:""
   }];
   /**
      * Variables para tener control tanto de la fecha como de la hora indicadas para dar respuesta a la asesoria
      */
   private idAsesoria;
   constructor(public navCtrl: NavController, public storage: Storage, public alertController: AlertController, public asesoriaService: AsesoriaService) {
-    storage.get('idasesoria').then((parameter) => {
+    storage.get('idAsesoria').then((parameter) => {
       console.log(parameter);
       this.idAsesoria = parameter;
+      this.cargarDatos();
     });
-    this.cargarDatos();
+    
   }  
 
   ngOnInit() {
   }
 
-  async crearRespuestaCorrecta() {
+  async noDatos() {
     const alert = await this.alertController.create({
       header: 'Nota',
-      message: 'Tu respuesta a quedado registrada',
+      message: 'Lo sentimos, esta asesoría aun no tiene una respuesta',
       buttons: ['Close']
     });
-    this.navCtrl.navigateRoot('/home');
-    await alert.present();
-  }
-
-  async crearRespuestaIncorrecta() {
-    const alert = await this.alertController.create({
-      header: 'Nota',
-      message: 'Debes seleccionar una fecha y una hora',
-      buttons: ['Close']
-    });
-    this.navCtrl.navigateRoot('/home');
+    this.navCtrl.navigateRoot('/cuconsultar-asesorias-solicitadas');
     await alert.present();
   }
   /**
@@ -67,7 +58,12 @@ export class CuconsultarAsesoriasSolicitadasDetallesPage implements OnInit {
   cargarDatos(){
     this.asesoriaService.getDetallesAsesoria(this.idAsesoria).subscribe((data)=>{
       console.log(data);
-      this.asesorias=Object.values(data);
+      if(Object.values(data).length==0){
+        this.noDatos();
+      }else{
+        this.asesorias=Object.values(data);
+      }
+     
     },
     (error=>{
       console.log(error);

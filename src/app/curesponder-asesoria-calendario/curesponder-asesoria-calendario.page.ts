@@ -32,11 +32,6 @@ export class CuresponderAsesoriaCalendarioPage implements OnInit {
     if (fechaA != undefined && hora != undefined) {
       this.fechaAsesoria = fechaA;
       this.horaAsesoria = hora;
-      console.log(this.fechaAsesoria);
-      console.log(this.horaAsesoria);
-      
-      console.log(this.idAsesoria);
-
       this.asesoriaService.addRespuesta(1,1701122317,this.fechaAsesoria,this.horaAsesoria).subscribe((data)=>{
         console.log(data);
         this.crearRespuestaCorrecta();
