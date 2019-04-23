@@ -1,8 +1,9 @@
 import { Component, OnInit, ModuleWithComponentFactories } from '@angular/core';
 import { NavController, AlertController, NavParams } from '@ionic/angular';
-import {AsesoriaService} from '../asesoria.service'
+import { AsesoriaService } from '../asesoria.service'
 import { Storage } from '@ionic/storage';
-import { AstMemoryEfficientTransformer } from '@angular/compiler';
+
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-curesponder-asesoria-calendario',
@@ -16,12 +17,12 @@ export class CuresponderAsesoriaCalendarioPage implements OnInit {
   private fechaAsesoria;
   private horaAsesoria;
   private idAsesoria;
-  constructor(public navCtrl: NavController,public storage:Storage, public alertController: AlertController, public asesoriaService:AsesoriaService) { 
-    storage.get('idAsesoria').then((parameter)=>
-      {
-        console.log(parameter);
-        this.idAsesoria=parameter;
-      })
+  private hoy;
+  constructor(public navCtrl: NavController, public storage: Storage, public alertController: AlertController, public asesoriaService: AsesoriaService) {
+    storage.get('idAsesoria').then((parameter) => {
+      console.log(parameter);
+      this.idAsesoria = parameter;
+    })
   }
 
   /**
@@ -33,26 +34,32 @@ export class CuresponderAsesoriaCalendarioPage implements OnInit {
     if (fechaA != undefined && hora != undefined) {
       this.fechaAsesoria = fechaA;
       this.horaAsesoria = hora;
-      this.asesoriaService.addRespuesta(1,1701122317,this.fechaAsesoria,this.horaAsesoria).subscribe((data)=>{
-        console.log(data);
-        this.crearRespuestaCorrecta();
-      },
-      (error=>{
-        console.log(error);
-      })
-      )
-    } else {
-      
+      this.hoy = new Date();
+      this.fechaAsesoria = moment(fechaA, "YYYY-MM-DD").toDate();
+      if (this.hoy < this.fechaAsesoria) {
+        this.fechaAsesoria=fechaA;
+        this.asesoriaService.addRespuesta(1, 1701122317, this.fechaAsesoria, this.horaAsesoria).subscribe((data) => {
+          console.log(data);
+          this.crearRespuestaCorrecta();
+        },
+          (error => {
+            console.log(error);
+          })
+        )
+      } else {
 
-      this.crearRespuestaIncorrecta();
+
+        this.crearRespuestaIncorrecta();
+      }
     }
+
 
   }
 
   ngOnInit() {
   }
 
-  async crearRespuestaCorrecta(){
+  async crearRespuestaCorrecta() {
     const alert = await this.alertController.create({
       header: 'Nota',
       message: 'Tu respuesta a quedado registrada',
@@ -62,7 +69,7 @@ export class CuresponderAsesoriaCalendarioPage implements OnInit {
     await alert.present();
   }
 
-  async crearRespuestaIncorrecta(){
+  async crearRespuestaIncorrecta() {
     const alert = await this.alertController.create({
       header: 'Nota',
       message: 'Debes seleccionar una fecha y una hora',
