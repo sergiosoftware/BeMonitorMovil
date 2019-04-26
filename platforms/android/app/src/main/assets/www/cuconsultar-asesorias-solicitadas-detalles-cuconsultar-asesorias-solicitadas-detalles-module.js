@@ -58,7 +58,7 @@ var CuconsultarAsesoriasSolicitadasDetallesPageModule = /** @class */ (function 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      <ion-item>\n        <ion-label stacked class=\"my-header\">\n          <ion-avatar slot=\"start\">\n            <img src=\"assets/icon/tittle.png\"> BeMonitor Móvil\n          </ion-avatar>\n        </ion-label>\n      </ion-item>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n<ion-content padding>\n  <ion-item>\n    <ion-label stacked class=\"my-subtittle\">Consultar Asesorias Solicitadas</ion-label>\n  </ion-item>\n  <ion-grid>\n    asesorias=[{\n     asignatura:\"\",\n     tema:0,\n     fechaRespuesta:\"\",\n     nombreMonitor:\"\",\n     correoMonitor:\"\"\n  }];\n    <ion-row *ngFor=\"let listaAsesorias of asesorias\" justify-content-start>\n      <ion-col size=\"12\">\n        <ion-card color=\"primary\">\n          <ion-col> Detalles\n            <ion-item>\n              Asignatura:\n              <ion-label class=\"my-label\">{{listaAsesorias.asignatura}}</ion-label>\n            </ion-item>\n            <ion-item>\n              Tema:\n              <ion-label class=\"my-label\">{{listaAsesorias.tema}}</ion-label>\n            </ion-item>\n            <ion-item>\n              Fecha respuesta:\n              <ion-label class=\"my-label\">{{listaAsesorias.fechaRespuesta}}</ion-label>\n            </ion-item>\n            <ion-item>\n              Nombre monitor:\n              <ion-label class=\"my-label\">{{listaAsesorias.nombreMonitor}}</ion-label>\n            </ion-item>\n            <ion-item>\n              Correo monitor\n              <ion-label class=\"my-label\">{{listaAsesorias.correoMonitor}}</ion-label>\n            </ion-item>\n          </ion-col>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n    <ion-button expand=\"full\" size=\"small\" color=\"dark\" (click)=\"regresar()\">\n      <ion-icon name=\"send\"></ion-icon>Regresar\n    </ion-button>\n  </ion-grid>\n</ion-content>"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      <ion-item>\r\n        <ion-label stacked class=\"my-header\">\r\n          <ion-avatar slot=\"start\">\r\n            <img src=\"assets/icon/tittle.png\"> BeMonitor Móvil\r\n          </ion-avatar>\r\n        </ion-label>\r\n      </ion-item>\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n<ion-content padding>\r\n  <ion-item>\r\n    <ion-label stacked class=\"my-subtittle\">Consultar Asesorias Solicitadas</ion-label>\r\n  </ion-item>\r\n  <ion-grid>\r\n    <ion-row *ngFor=\"let listaAsesorias of asesorias\" justify-content-start>\r\n      <ion-col size=\"12\">\r\n        <ion-card color=\"primary\">\r\n          <ion-col> Detalles\r\n            <ion-item>\r\n              Fecha respuesta: \r\n              <ion-label class=\"my-label\"> {{listaAsesorias.fechaRespuesta}}</ion-label>\r\n            </ion-item>\r\n            <ion-item>\r\n              Hora respuesta: \r\n              <ion-label class=\"my-label\"> {{listaAsesorias.horaRespuesta}}</ion-label>\r\n            </ion-item>\r\n            <ion-item>\r\n              Nombre monitor: \r\n              <ion-label class=\"my-label\"> {{listaAsesorias.nombreMonitor}} {{listaAsesorias.apellidoMonitor}}</ion-label>\r\n            </ion-item>\r\n            <ion-item>\r\n              Correo monitor: \r\n              <ion-label class=\"my-label\"> {{listaAsesorias.correo}}</ion-label>\r\n            </ion-item>\r\n          </ion-col>\r\n        </ion-card>\r\n      </ion-col>\r\n    </ion-row>\r\n    <ion-button expand=\"full\" size=\"small\" color=\"dark\" (click)=\"regresar()\">\r\n      <ion-icon name=\"send\"></ion-icon>Regresar\r\n    </ion-button>\r\n  </ion-grid>\r\n</ion-content>"
 
 /***/ }),
 
@@ -104,54 +104,33 @@ var CuconsultarAsesoriasSolicitadasDetallesPage = /** @class */ (function () {
          * Estructura real de las asesorías detalladas
          */
         this.asesorias = [{
-                asignatura: "",
-                tema: 0,
                 fechaRespuesta: "",
+                horaRespuesta: "",
                 nombreMonitor: "",
-                correoMonitor: ""
+                apellidoMonitor: "",
+                correo: ""
             }];
-        storage.get('idasesoria').then(function (parameter) {
+        storage.get('idAsesoria').then(function (parameter) {
             console.log(parameter);
             _this.idAsesoria = parameter;
+            _this.cargarDatos();
         });
-        this.cargarDatos();
     }
     CuconsultarAsesoriasSolicitadasDetallesPage.prototype.ngOnInit = function () {
     };
-    CuconsultarAsesoriasSolicitadasDetallesPage.prototype.crearRespuestaCorrecta = function () {
+    CuconsultarAsesoriasSolicitadasDetallesPage.prototype.noDatos = function () {
         return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
             var alert;
             return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.alertController.create({
                             header: 'Nota',
-                            message: 'Tu respuesta a quedado registrada',
+                            message: 'Lo sentimos, esta asesoría aun no tiene una respuesta',
                             buttons: ['Close']
                         })];
                     case 1:
                         alert = _a.sent();
-                        this.navCtrl.navigateRoot('/home');
-                        return [4 /*yield*/, alert.present()];
-                    case 2:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    CuconsultarAsesoriasSolicitadasDetallesPage.prototype.crearRespuestaIncorrecta = function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-            var alert;
-            return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.alertController.create({
-                            header: 'Nota',
-                            message: 'Debes seleccionar una fecha y una hora',
-                            buttons: ['Close']
-                        })];
-                    case 1:
-                        alert = _a.sent();
-                        this.navCtrl.navigateRoot('/home');
+                        this.navCtrl.navigateRoot('/cuconsultar-asesorias-solicitadas');
                         return [4 /*yield*/, alert.present()];
                     case 2:
                         _a.sent();
@@ -179,7 +158,12 @@ var CuconsultarAsesoriasSolicitadasDetallesPage = /** @class */ (function () {
         var _this = this;
         this.asesoriaService.getDetallesAsesoria(this.idAsesoria).subscribe(function (data) {
             console.log(data);
-            _this.asesorias = Object.values(data);
+            if (Object.values(data).length == 0) {
+                _this.noDatos();
+            }
+            else {
+                _this.asesorias = Object.values(data);
+            }
         }, (function (error) {
             console.log(error);
         }));

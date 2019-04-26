@@ -47,10 +47,10 @@ export class CuresponderAsesoriaCalendarioPage implements OnInit {
           })
         )
       } else {
-
-
-        this.crearRespuestaIncorrecta();
+        this.crearRespuestaFechaIncorrecta();
       }
+    } else{
+      this.crearRespuestaIncorrecta();
     }
 
 
@@ -75,9 +75,19 @@ export class CuresponderAsesoriaCalendarioPage implements OnInit {
       message: 'Debes seleccionar una fecha y una hora',
       buttons: ['Close']
     });
-    this.navCtrl.navigateRoot('/home');
     await alert.present();
   }
+
+  async crearRespuestaFechaIncorrecta() {
+    const alert = await this.alertController.create({
+      header: 'Nota',
+      message: 'Debes seleccionar una fecha superior a la actual',
+      buttons: ['Close']
+    });
+    await alert.present()
+
+  }
+
 
   //getCurrentTime() {
   //  return moment().format("MMM Do YY");

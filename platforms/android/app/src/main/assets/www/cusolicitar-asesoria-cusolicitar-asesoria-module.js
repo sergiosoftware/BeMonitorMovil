@@ -169,9 +169,6 @@ var CUSolicitarAsesoriaPage = /** @class */ (function () {
             // Save your values, using this.form.get('myField').value;
             this.asignaturaAsesoria = this.form.get('asignaturaA').value;
             this.temaAsesoria = this.form.get('temaA').value;
-            console.log("datos obtenidos");
-            console.log(this.asignaturaAsesoria);
-            console.log(this.temaAsesoria);
             var codigoEstudiante = 1701310061;
             this.asesoriaService.addAsesoria(codigoEstudiante, this.asignaturaAsesoria, this.temaAsesoria).subscribe(function (data) {
                 console.log(data);

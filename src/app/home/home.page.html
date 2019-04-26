@@ -19,7 +19,7 @@
   <ion-grid>
     <!--Caso de uso Solicitar Asesoria-->
     <ion-row>
-      <ion-col size="6" *ngFor="let Solicitar of SolicitarAsesoria">
+      <ion-col size="12" *ngFor="let Solicitar of SolicitarAsesoria">
         <ion-card (click)="reproducirSonido(Solicitar)">
           <ion-img [src]="Solicitar.imagen"></ion-img>
           <!-- Item as an Anchor -->
@@ -33,7 +33,7 @@
 
       <!--Caso de uso Responder Asesoria-->
 
-      <ion-col size="6" *ngFor="let Responder of ResponderAsesoria">
+      <ion-col size="12" *ngFor="let Responder of ResponderAsesoria">
         <ion-card (click)="reproducirSonido(Responder)">
           <ion-img [src]="Responder.imagen"></ion-img>
           <!-- Item as an Anchor -->
@@ -47,7 +47,7 @@
 
       <!--Caso de uso Consultar Asesorias Solicitadas-->
 
-      <ion-col size="6" *ngFor="let ConsultarAsesorias of ConsultarAseosirasSolicitadas">
+      <ion-col size="12" *ngFor="let ConsultarAsesorias of ConsultarAseosirasSolicitadas">
         <ion-card (click)="reproducirSonido(ConsultarAsesorias)">
           <ion-img [src]="ConsultarAsesorias.imagen"></ion-img>
           <!-- Item as an Anchor -->

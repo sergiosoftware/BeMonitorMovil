@@ -1122,35 +1122,35 @@ var AsesoriaService = /** @class */ (function () {
     }
     //WEBSERVICE ASESORIA
     AsesoriaService.prototype.getAsesorias = function () {
-        return this.http.get('http://192.168.137.235:8080/Software3/getTodasAsesorias.htm');
+        return this.http.get('http://bemonitor.phx.enscaled.us/getTodasAsesorias.htm');
     };
     AsesoriaService.prototype.getAsesoriaId = function (id) {
-        return this.http.get('http://192.168.137.235:8080/Software3/getAsesoria.htm?idAsesoria=' + id);
+        return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoria.htm?idAsesoria=' + id);
     };
     AsesoriaService.prototype.getAsesoriaAsignatura = function (asignatura) {
-        return this.http.get('http://192.168.137.235:8080/Software3/getAsesoriaAsignatura.htm?asignatura="' + asignatura + '"');
+        return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoriaAsignatura.htm?asignatura="' + asignatura + '"');
     };
     AsesoriaService.prototype.addAsesoria = function (codigoEstudiante, asignatura, tema) {
-        return this.http.get('http://192.168.137.235:8080/Software3/getAsesoriaJSP.htm?codigoEstudiante=' + codigoEstudiante + '&asignatura=' + asignatura + '&tema=' + tema);
+        return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoriaJSP.htm?codigoEstudiante=' + codigoEstudiante + '&asignatura=' + asignatura + '&tema=' + tema);
     };
     AsesoriaService.prototype.getAsesoriasEstudiante = function (codigoEstudiante) {
-        return this.http.get('http://192.168.137.235:8080/Software3/getAsesoriasEstudiante.htm?codigoEstudiante=' + codigoEstudiante);
+        return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoriasEstudiante.htm?codigoEstudiante=' + codigoEstudiante);
     };
     AsesoriaService.prototype.getDetallesAsesoria = function (idAsesoria) {
-        return this.http.get('http://192.168.137.235:8080/Software3/getDetallesAsesoria.htm?idAsesoria=' + idAsesoria);
+        return this.http.get('http://bemonitor.phx.enscaled.us/getDetallesAsesoria.htm?idAsesoria=' + idAsesoria);
     };
     //WEBSERVICE PARA RESPUESTAS ASESORIA
     AsesoriaService.prototype.getRespuestas = function () {
-        return this.http.get('http://192.168.137.235:8080/Software3/getTodasRespuestas.htm');
+        return this.http.get('http://bemonitor.phx.enscaled.us/getTodasRespuestas.htm');
     };
     AsesoriaService.prototype.getRespuestaId = function (id) {
-        return this.http.get('http://192.168.137.235:8080/Software3/getRespuestaAsesoria.htm?idAsesoria=' + id);
+        return this.http.get('http://bemonitor.phx.enscaled.us/getRespuestaAsesoria.htm?idAsesoria=' + id);
     };
     AsesoriaService.prototype.getRespuestasignatura = function (asignatura) {
-        return this.http.get('http://192.168.137.235:8080/Software3/getRespuestaAsignatura.htm?asignatura=' + asignatura);
+        return this.http.get('http://bemonitor.phx.enscaled.us/getRespuestaAsignatura.htm?asignatura=' + asignatura);
     };
     AsesoriaService.prototype.addRespuesta = function (idAsesoria, codigoMonitor, fecha, hora) {
-        return this.http.get('http://192.168.137.235:8080/Software3/agregarRespuesta.htm?idAsesoria=' + idAsesoria + '&codigoMonitor=' + codigoMonitor + '&fecha=' + fecha + '&hora=' + hora);
+        return this.http.get('http://bemonitor.phx.enscaled.us/agregarRespuesta.htm?idAsesoria=' + idAsesoria + '&codigoMonitor=' + codigoMonitor + '&fecha=' + fecha + '&hora=' + hora);
     };
     AsesoriaService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
