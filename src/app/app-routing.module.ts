@@ -15,15 +15,27 @@ const routes: Routes = [
     path: 'list',
     loadChildren: './list/list.module#ListPageModule'
   },
-  { 
-    path: 'cusolicitar-asesoria', 
-    loadChildren: './cusolicitar-asesoria/cusolicitar-asesoria.module#CUSolicitarAsesoriaPageModule' 
+  {
+    path: 'cusolicitar-asesoria',
+    loadChildren: './cusolicitar-asesoria/cusolicitar-asesoria.module#CUSolicitarAsesoriaPageModule'
   },
-  { 
-    path: 'archivo', 
-    loadChildren: './archivo/archivo.module#ArchivoPageModule' },
-  { path: 'curesponder-asesoria', loadChildren: './curesponder-asesoria/curesponder-asesoria.module#CuresponderAsesoriaPageModule' },
-  { path: 'curesponder-asesoria-calendario', loadChildren: './curesponder-asesoria-calendario/curesponder-asesoria-calendario.module#CuresponderAsesoriaCalendarioPageModule' }
+  {
+    path: 'archivo',
+    loadChildren: './archivo/archivo.module#ArchivoPageModule'
+  },
+  {
+    path: 'curesponder-asesoria', loadChildren: './curesponder-asesoria/curesponder-asesoria.module#CuresponderAsesoriaPageModule'
+  },
+  {
+    path: 'curesponder-asesoria-calendario', loadChildren: './curesponder-asesoria-calendario/curesponder-asesoria-calendario.module#CuresponderAsesoriaCalendarioPageModule'
+  },
+  {
+    path: 'cuconsultar-asesorias-solicitadas', loadChildren: './cuconsultar-asesorias-solicitadas/cuconsultar-asesorias-solicitadas.module#CuconsultarAsesoriasSolicitadasPageModule'
+  },
+  {
+    path: 'cuconsultar-asesorias-solicitadas-detalles', loadChildren: './cuconsultar-asesorias-solicitadas-detalles/cuconsultar-asesorias-solicitadas-detalles.module#CuconsultarAsesoriasSolicitadasDetallesPageModule'
+  }
+
 ];
 
 @NgModule({

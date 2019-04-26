@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, AlertController } from '@ionic/angular';
 import {AsesoriaService} from '../asesoria.service'
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-curesponder-asesoria',
@@ -17,17 +18,20 @@ export class CuresponderAsesoriaPage implements OnInit {
    */
   asesorias=[{
      idasesoria:"",
-     codigoAsignatura:0,
+     nombreAsignatura:"",
      tema:"",
      fechaPublicacion:"",
      estudiante:0
   }];
+
+  
   /**
    * variable local que simula la asignatura del monitor
    */
   asesoria="G8F0059";
 
-  constructor(public navCtrl: NavController, public alertController: AlertController, public asesoriaService: AsesoriaService) { 
+
+  constructor(public navCtrl: NavController, public alertController: AlertController, public asesoriaService: AsesoriaService, public storage:Storage) { 
    this.cargarDatos();
   }
   /**
@@ -35,7 +39,8 @@ export class CuresponderAsesoriaPage implements OnInit {
    */
   async guardarYbuscar() {
     if (this.asesoriaSeleccionada != undefined) {
-      this.navCtrl.navigateRoot('/curesponder-asesoria-calendario');
+      await this.storage.set('idAsesoria',this.asesoriaSeleccionada);
+      await this.navCtrl.navigateForward(['/curesponder-asesoria-calendario']);
     } else {
       const alert = await this.alertController.create({
         header: 'Nota',

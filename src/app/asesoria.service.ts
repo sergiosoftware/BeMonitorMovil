@@ -10,35 +10,44 @@ export class AsesoriaService {
 
   //WEBSERVICE ASESORIA
   getAsesorias(){
-    return this.http.get('http://localhost:8080/Software3/getTodasAsesorias.htm');
+    return this.http.get('http://bemonitor.phx.enscaled.us/getTodasAsesorias.htm');
   }
 
   getAsesoriaId(id){
-    return this.http.get('http://localhost:8080/Software3/getAsesoria.htm?idAsesoria='+id);
+    return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoria.htm?idAsesoria='+id);
   }
   getAsesoriaAsignatura(asignatura:String){
-    return this.http.get('http://localhost:8080/Software3/getAsesoriaAsignatura.htm?asignatura="'+asignatura+'"');
+    return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoriaAsignatura.htm?asignatura="'+asignatura+'"');
   }
 
   addAsesoria(codigoEstudiante,asignatura,tema){
-    return this.http.get('http://localhost:8080/Software3/getAsesoriaJSP.htm?codigoEstudiante='+codigoEstudiante+'&asignatura='+asignatura+'&tema='+tema);
+    return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoriaJSP.htm?codigoEstudiante='+codigoEstudiante+'&asignatura='+asignatura+'&tema='+tema);
+  }
+
+  getAsesoriasEstudiante(codigoEstudiante){
+    return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoriasEstudiante.htm?codigoEstudiante='+codigoEstudiante);
+  }
+
+  getDetallesAsesoria(idAsesoria){
+    return this.http.get('http://bemonitor.phx.enscaled.us/getDetallesAsesoria.htm?idAsesoria='+idAsesoria);
+
   }
 
 
   //WEBSERVICE PARA RESPUESTAS ASESORIA
   getRespuestas(){
-    return this.http.get('http://localhost:8080/Software3/getTodasRespuestas.htm');
+    return this.http.get('http://bemonitor.phx.enscaled.us/getTodasRespuestas.htm');
   }
 
   getRespuestaId(id){
-    return this.http.get('http://localhost:8080/Software3/getRespuestaAsesoria.htm?idAsesoria='+id);
+    return this.http.get('http://bemonitor.phx.enscaled.us/getRespuestaAsesoria.htm?idAsesoria='+id);
   }
   getRespuestasignatura(asignatura){
-    return this.http.get('http://localhost:8080/Software3/getRespuestaAsignatura.htm?asignatura='+asignatura);
+    return this.http.get('http://bemonitor.phx.enscaled.us/getRespuestaAsignatura.htm?asignatura='+asignatura);
   }
 
   addRespuesta(idAsesoria,codigoMonitor,fecha,hora){
-    return this.http.get('http://localhost:8080/Software3/agregarRespuesta.htm?idAsesoria='+idAsesoria+'&codigoMonitor='+codigoMonitor+'&fecha='+fecha+'&hora='+hora);
+    return this.http.get('http://bemonitor.phx.enscaled.us/agregarRespuesta.htm?idAsesoria='+idAsesoria+'&codigoMonitor='+codigoMonitor+'&fecha='+fecha+'&hora='+hora);
   }
 
 }

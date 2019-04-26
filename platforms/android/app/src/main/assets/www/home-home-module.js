@@ -57,7 +57,7 @@ var HomePageModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\">\n      <ion-menu-button></ion-menu-button>\n    </ion-buttons>\n    <ion-title>\n      <ion-item>\n        <ion-label stacked class=\"my-label\">\n          <ion-avatar slot=\"start\">\n            <img src=\"assets/icon/tittle.png\">\n          </ion-avatar>BeMonitor Móvil\n        </ion-label>\n      </ion-item>\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content color=\"medium\">\n  <ion-grid>\n    <ion-row>\n      <ion-col size=\"12\" *ngFor=\"let CU of casosdeUso\">\n        <ion-card (click)=\"reproducirSonido(CU)\">\n          <ion-img [src]=\"CU.imagen\"></ion-img>\n          <!-- Item as an Anchor -->\n          <ion-item routerLink=\"/cusolicitar-asesoria\">\n            <ion-label stacked class=\"my-label\">\n              Solicitar Asesoria\n            </ion-label>\n          </ion-item>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n  <!--\n    <ion-list lines=\"none\">\n      <ion-list-header>\n        <ion-label>Resources</ion-label>\n      </ion-list-header>\n      <ion-item href=\"https://ionicframework.com/docs/\">\n        <ion-icon slot=\"start\" color=\"medium\" name=\"book\"></ion-icon>\n        <ion-label>Ionic Documentation</ion-label>\n      </ion-item>\n    </ion-list>\n  -->\n</ion-content>"
+module.exports = "<ion-header>\r\n  <ion-toolbar>\r\n    <ion-buttons slot=\"start\">\r\n      <ion-menu-button></ion-menu-button>\r\n    </ion-buttons>\r\n    <ion-title>\r\n      <ion-item>\r\n        <ion-label stacked class=\"my-header\">\r\n          <ion-avatar slot=\"start\">\r\n            <img src=\"assets/icon/tittle.png\"> BeMonitor Móvil\r\n          </ion-avatar>\r\n        </ion-label>\r\n      </ion-item>\r\n    </ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content color=\"medium\">\r\n  <ion-grid>\r\n    <!--Caso de uso Solicitar Asesoria-->\r\n    <ion-row>\r\n      <ion-col size=\"12\" *ngFor=\"let Solicitar of SolicitarAsesoria\">\r\n        <ion-card (click)=\"reproducirSonido(Solicitar)\">\r\n          <ion-img [src]=\"Solicitar.imagen\"></ion-img>\r\n          <!-- Item as an Anchor -->\r\n          <ion-item routerLink=\"/cusolicitar-asesoria\">\r\n            <ion-label stacked class=\"my-label\">\r\n              Solicitar Asesoria\r\n            </ion-label>\r\n          </ion-item>\r\n        </ion-card>\r\n      </ion-col>\r\n\r\n      <!--Caso de uso Responder Asesoria-->\r\n\r\n      <ion-col size=\"12\" *ngFor=\"let Responder of ResponderAsesoria\">\r\n        <ion-card (click)=\"reproducirSonido(Responder)\">\r\n          <ion-img [src]=\"Responder.imagen\"></ion-img>\r\n          <!-- Item as an Anchor -->\r\n          <ion-item routerLink=\"/curesponder-asesoria\">\r\n            <ion-label stacked class=\"my-label\">\r\n              Responder Asesoria\r\n            </ion-label>\r\n          </ion-item>\r\n        </ion-card>\r\n      </ion-col>\r\n\r\n      <!--Caso de uso Consultar Asesorias Solicitadas-->\r\n\r\n      <ion-col size=\"12\" *ngFor=\"let ConsultarAsesorias of ConsultarAseosirasSolicitadas\">\r\n        <ion-card (click)=\"reproducirSonido(ConsultarAsesorias)\">\r\n          <ion-img [src]=\"ConsultarAsesorias.imagen\"></ion-img>\r\n          <!-- Item as an Anchor -->\r\n          <ion-item routerLink=\"/cuconsultar-asesorias-solicitadas\">\r\n            <ion-label stacked class=\"my-label\">\r\n              Consultar Asesorias Solicitadas\r\n            </ion-label>\r\n          </ion-item>\r\n        </ion-card>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-content>"
 
 /***/ }),
 
@@ -68,7 +68,7 @@ module.exports = "<ion-header>\n  <ion-toolbar>\n    <ion-buttons slot=\"start\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidden;\n  background: #abc; }\n\n.my-label {\n  font-family: 'Lobster';\n  src: url(https://fonts.google.com/?query=lobster&selection.family=Lobster);\n  text-align: center; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9DOlxcVXNlcnNcXHNlcmdpb2FuZHJlc1xcRGVza3RvcFxcSW9uaWNcXEJlTW9uaXRvck1vdmlsL3NyY1xcYXBwXFxob21lXFxob21lLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGdCQUFnQjtFQUNoQixnQkFBZ0I7RUFDaEIsZ0JBQWdCLEVBQUE7O0FBR2xCO0VBQ0Usc0JBQXNCO0VBQ3RCLDBFQUEwRTtFQUMxRSxrQkFBa0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud2VsY29tZS1jYXJkIGlvbi1pbWcge1xuICBtYXgtaGVpZ2h0OiAzNXZoO1xuICBvdmVyZmxvdzogaGlkZGVuO1xuICBiYWNrZ3JvdW5kOiAjYWJjO1xufVxuXG4ubXktbGFiZWwge1xuICBmb250LWZhbWlseTogJ0xvYnN0ZXInO1xuICBzcmM6IHVybChodHRwczovL2ZvbnRzLmdvb2dsZS5jb20vP3F1ZXJ5PWxvYnN0ZXImc2VsZWN0aW9uLmZhbWlseT1Mb2JzdGVyKTtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufVxuXG5cblxuIl19 */"
+module.exports = ".welcome-card ion-img {\n  max-height: 35vh;\n  overflow: hidden;\n  background: #abc; }\n\n.my-label {\n  font-family: 'lobster';\n  font-size: 100%;\n  text-align: center; }\n\n.my-header {\n  font-family: 'lobster';\n  font-size: 20px;\n  text-align: center; }\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZS9DOlxcVXNlcnNcXHNlcmdpb2FuZHJlc1xcRGVza3RvcFxcQmVNb25pdG9yTW92aWxPcmlnaW5hbFxcQmVNb25pdG9yTW92aWwtMS9zcmNcXGFwcFxcaG9tZVxcaG9tZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDRSxnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLGdCQUFnQixFQUFBOztBQUdsQjtFQUNFLHNCQUFzQjtFQUN0QixlQUFlO0VBQ2Ysa0JBQWtCLEVBQUE7O0FBR3BCO0VBQ0Usc0JBQXNCO0VBQ3RCLGVBQWU7RUFDZixrQkFBa0IsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIud2VsY29tZS1jYXJkIGlvbi1pbWcge1xyXG4gIG1heC1oZWlnaHQ6IDM1dmg7XHJcbiAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICBiYWNrZ3JvdW5kOiAjYWJjO1xyXG59XHJcblxyXG4ubXktbGFiZWwge1xyXG4gIGZvbnQtZmFtaWx5OiAnbG9ic3Rlcic7XHJcbiAgZm9udC1zaXplOiAxMDAlO1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuLm15LWhlYWRlcntcclxuICBmb250LWZhbWlseTogJ2xvYnN0ZXInO1xyXG4gIGZvbnQtc2l6ZTogMjBweDtcclxuICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn1cclxuXHJcblxyXG5cclxuXHJcblxyXG4iXX0= */"
 
 /***/ }),
 
@@ -88,10 +88,27 @@ __webpack_require__.r(__webpack_exports__);
 
 var HomePage = /** @class */ (function () {
     function HomePage() {
-        this.casosdeUso = [
+        /**
+         * Caracteristicas adicionales para las vistas, no son requisitos del cliente
+         */
+        this.SolicitarAsesoria = [
             {
                 nombre: 'Solicitar Asesoria',
                 imagen: 'assets/imagenes/solicitarasesoria.jpg',
+                audio: 'assets/sonidos/bombo1.mp3'
+            }
+        ];
+        this.ResponderAsesoria = [
+            {
+                nombre: 'Responder Asesoria',
+                imagen: 'assets/imagenes/responderasesoria.jpg',
+                audio: 'assets/sonidos/bombo1.mp3'
+            }
+        ];
+        this.ConsultarAseosirasSolicitadas = [
+            {
+                nombre: 'Consultar Asesorias Solicitadas',
+                imagen: 'assets/imagenes/consultarasesorias.jpg',
                 audio: 'assets/sonidos/bombo1.mp3'
             }
         ];

@@ -837,6 +837,26 @@ module.exports = webpackAsyncContext;
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./archivo/archivo.module": [
+		"./src/app/archivo/archivo.module.ts",
+		"archivo-archivo-module"
+	],
+	"./cuconsultar-asesorias-solicitadas-detalles/cuconsultar-asesorias-solicitadas-detalles.module": [
+		"./src/app/cuconsultar-asesorias-solicitadas-detalles/cuconsultar-asesorias-solicitadas-detalles.module.ts",
+		"cuconsultar-asesorias-solicitadas-detalles-cuconsultar-asesorias-solicitadas-detalles-module"
+	],
+	"./cuconsultar-asesorias-solicitadas/cuconsultar-asesorias-solicitadas.module": [
+		"./src/app/cuconsultar-asesorias-solicitadas/cuconsultar-asesorias-solicitadas.module.ts",
+		"cuconsultar-asesorias-solicitadas-cuconsultar-asesorias-solicitadas-module"
+	],
+	"./curesponder-asesoria-calendario/curesponder-asesoria-calendario.module": [
+		"./src/app/curesponder-asesoria-calendario/curesponder-asesoria-calendario.module.ts",
+		"curesponder-asesoria-calendario-curesponder-asesoria-calendario-module"
+	],
+	"./curesponder-asesoria/curesponder-asesoria.module": [
+		"./src/app/curesponder-asesoria/curesponder-asesoria.module.ts",
+		"curesponder-asesoria-curesponder-asesoria-module"
+	],
 	"./cusolicitar-asesoria/cusolicitar-asesoria.module": [
 		"./src/app/cusolicitar-asesoria/cusolicitar-asesoria.module.ts",
 		"cusolicitar-asesoria-cusolicitar-asesoria-module"
@@ -902,7 +922,26 @@ var routes = [
         path: 'list',
         loadChildren: './list/list.module#ListPageModule'
     },
-    { path: 'cusolicitar-asesoria', loadChildren: './cusolicitar-asesoria/cusolicitar-asesoria.module#CUSolicitarAsesoriaPageModule' }
+    {
+        path: 'cusolicitar-asesoria',
+        loadChildren: './cusolicitar-asesoria/cusolicitar-asesoria.module#CUSolicitarAsesoriaPageModule'
+    },
+    {
+        path: 'archivo',
+        loadChildren: './archivo/archivo.module#ArchivoPageModule'
+    },
+    {
+        path: 'curesponder-asesoria', loadChildren: './curesponder-asesoria/curesponder-asesoria.module#CuresponderAsesoriaPageModule'
+    },
+    {
+        path: 'curesponder-asesoria-calendario', loadChildren: './curesponder-asesoria-calendario/curesponder-asesoria-calendario.module#CuresponderAsesoriaCalendarioPageModule'
+    },
+    {
+        path: 'cuconsultar-asesorias-solicitadas', loadChildren: './cuconsultar-asesorias-solicitadas/cuconsultar-asesorias-solicitadas.module#CuconsultarAsesoriasSolicitadasPageModule'
+    },
+    {
+        path: 'cuconsultar-asesorias-solicitadas-detalles', loadChildren: './cuconsultar-asesorias-solicitadas-detalles/cuconsultar-asesorias-solicitadas-detalles.module#CuconsultarAsesoriasSolicitadasDetallesPageModule'
+    }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -927,7 +966,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ion-app>\n  <ion-split-pane>\n    <ion-menu>\n      <ion-header>\n        <ion-toolbar>\n          <ion-title>Menu</ion-title>\n        </ion-toolbar>\n      </ion-header>\n      <ion-content>\n        <ion-list>\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\n            <ion-item [routerDirection]=\"'root'\" [routerLink]=\"[p.url]\">\n              <ion-icon slot=\"start\" [name]=\"p.icon\"></ion-icon>\n              <ion-label>\n                {{p.title}}\n              </ion-label>\n            </ion-item>\n          </ion-menu-toggle>\n        </ion-list>\n      </ion-content>\n    </ion-menu>\n    <ion-router-outlet main></ion-router-outlet>\n  </ion-split-pane>\n</ion-app>\n"
+module.exports = "<ion-app>\r\n  <ion-split-pane>\r\n    <ion-menu>\r\n      <ion-header>\r\n        <ion-toolbar>\r\n          <ion-title>Menu</ion-title>\r\n        </ion-toolbar>\r\n      </ion-header>\r\n      <ion-content>\r\n        <ion-list>\r\n          <ion-menu-toggle auto-hide=\"false\" *ngFor=\"let p of appPages\">\r\n            <ion-item [routerDirection]=\"'root'\" [routerLink]=\"[p.url]\">\r\n              <ion-icon slot=\"start\" [name]=\"p.icon\"></ion-icon>\r\n              <ion-label>\r\n                {{p.title}}\r\n              </ion-label>\r\n            </ion-item>\r\n          </ion-menu-toggle>\r\n        </ion-list>\r\n      </ion-content>\r\n    </ion-menu>\r\n    <ion-router-outlet main></ion-router-outlet>\r\n  </ion-split-pane>\r\n</ion-app>\r\n"
 
 /***/ }),
 
@@ -1012,6 +1051,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic-native/status-bar/ngx */ "./node_modules/@ionic-native/status-bar/ngx/index.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _asesoria_service__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./asesoria.service */ "./src/app/asesoria.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _angular_http__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @angular/http */ "./node_modules/@angular/http/fesm5/http.js");
+/* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm5/ionic-storage.js");
+
+
+
+
 
 
 
@@ -1030,11 +1077,16 @@ var AppModule = /** @class */ (function () {
             entryComponents: [],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__["BrowserModule"],
+                _angular_http__WEBPACK_IMPORTED_MODULE_11__["HttpModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HttpClientModule"],
                 _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicModule"].forRoot(),
+                _ionic_storage__WEBPACK_IMPORTED_MODULE_12__["IonicStorageModule"].forRoot(),
                 _app_routing_module__WEBPACK_IMPORTED_MODULE_8__["AppRoutingModule"]
             ],
             providers: [
                 _ionic_native_status_bar_ngx__WEBPACK_IMPORTED_MODULE_6__["StatusBar"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_10__["HttpClientModule"],
+                _asesoria_service__WEBPACK_IMPORTED_MODULE_9__["AsesoriaService"],
                 _ionic_native_splash_screen_ngx__WEBPACK_IMPORTED_MODULE_5__["SplashScreen"],
                 { provide: _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouteReuseStrategy"], useClass: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["IonicRouteStrategy"] }
             ],
@@ -1042,6 +1094,71 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/asesoria.service.ts":
+/*!*************************************!*\
+  !*** ./src/app/asesoria.service.ts ***!
+  \*************************************/
+/*! exports provided: AsesoriaService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AsesoriaService", function() { return AsesoriaService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+var AsesoriaService = /** @class */ (function () {
+    function AsesoriaService(http) {
+        this.http = http;
+    }
+    //WEBSERVICE ASESORIA
+    AsesoriaService.prototype.getAsesorias = function () {
+        return this.http.get('http://bemonitor.phx.enscaled.us/getTodasAsesorias.htm');
+    };
+    AsesoriaService.prototype.getAsesoriaId = function (id) {
+        return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoria.htm?idAsesoria=' + id);
+    };
+    AsesoriaService.prototype.getAsesoriaAsignatura = function (asignatura) {
+        return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoriaAsignatura.htm?asignatura="' + asignatura + '"');
+    };
+    AsesoriaService.prototype.addAsesoria = function (codigoEstudiante, asignatura, tema) {
+        return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoriaJSP.htm?codigoEstudiante=' + codigoEstudiante + '&asignatura=' + asignatura + '&tema=' + tema);
+    };
+    AsesoriaService.prototype.getAsesoriasEstudiante = function (codigoEstudiante) {
+        return this.http.get('http://bemonitor.phx.enscaled.us/getAsesoriasEstudiante.htm?codigoEstudiante=' + codigoEstudiante);
+    };
+    AsesoriaService.prototype.getDetallesAsesoria = function (idAsesoria) {
+        return this.http.get('http://bemonitor.phx.enscaled.us/getDetallesAsesoria.htm?idAsesoria=' + idAsesoria);
+    };
+    //WEBSERVICE PARA RESPUESTAS ASESORIA
+    AsesoriaService.prototype.getRespuestas = function () {
+        return this.http.get('http://bemonitor.phx.enscaled.us/getTodasRespuestas.htm');
+    };
+    AsesoriaService.prototype.getRespuestaId = function (id) {
+        return this.http.get('http://bemonitor.phx.enscaled.us/getRespuestaAsesoria.htm?idAsesoria=' + id);
+    };
+    AsesoriaService.prototype.getRespuestasignatura = function (asignatura) {
+        return this.http.get('http://bemonitor.phx.enscaled.us/getRespuestaAsignatura.htm?asignatura=' + asignatura);
+    };
+    AsesoriaService.prototype.addRespuesta = function (idAsesoria, codigoMonitor, fecha, hora) {
+        return this.http.get('http://bemonitor.phx.enscaled.us/agregarRespuesta.htm?idAsesoria=' + idAsesoria + '&codigoMonitor=' + codigoMonitor + '&fecha=' + fecha + '&hora=' + hora);
+    };
+    AsesoriaService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], AsesoriaService);
+    return AsesoriaService;
 }());
 
 
@@ -1109,7 +1226,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\sergioandres\Desktop\Ionic\BeMonitorMovil\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\sergioandres\Desktop\BeMonitorMovilOriginal\BeMonitorMovil-1\src\main.ts */"./src/main.ts");
 
 
 /***/ })
